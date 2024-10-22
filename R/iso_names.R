@@ -1,7 +1,10 @@
 iso_names <- function( v, cm = NULL, type = c( "english_name", "un_names")){
    # load data set with codes
-   CountryRodesData = read.csv( system.file( "extdata", "CountryRodesData.csv",
-                                             package = "CountryRodes") )
+   #CountryRodesData = read.csv( system.file( "extdata", "CountryRodesData.csv",
+   #                                          package = "CountryRodes") )
+   #CountryRodesData = storage_read_csv(therawcontainer, "/dev_cr/countryRodes/inst/extdata/countryRodesData.csv")
+   CountryRodesData = read.csv("/dbfs/mnt/raw/DataScientistSDSData/dev_cr/countryRodes/inst/extdata/countryRodesData.csv")
+  
    rows <- unlist( lapply( v, codes, cm = cm, CountryRodesData = CountryRodesData ))
 
    # add a row to CountryRodesData for unknown countries
